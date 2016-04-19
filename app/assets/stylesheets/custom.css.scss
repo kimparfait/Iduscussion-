@@ -1,0 +1,100 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+@mixin body {
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: Arial, Helvetica, Sans-Serif;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+	box-sizing: border-box;
+	 padding-top: 80px; 
+	 
+	
+
+}
+
+.hover {
+    background-color: yellow;
+}
+.navbar-default {
+	background-color: #333333;
+	
+	
+
+}
+.navbar-default .navbar-brand {
+	font-family: guardain-egyptt, georgia, serif;
+	font-weight: 400;
+	color:  #FFFFFF;
+	font-size: 40px;
+	
+}
+.navbar-default .navbar-nav > li > a {
+	font-famliy: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	 outline: none;
+}
+.navbar-default .navbar-nav > li > a:hover{
+   
+    color: #FFFFFF;
+}
+.form {
+	@include body;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#category_id {
+		margin-bottom: 10px;
+	}
+
+	#book_book_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+.post-info {
+	@include body;
+
+	.book-title {
+		margin-top: 0;
+		font-size: 2em;
+	}
+	}
+	/* Signup/Login form styles */
+
+.signup-form {
+@include body;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+.login-form {
+	@include body;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+.col-md-3:nth-child(4n+1) {
+	clear: left;
+}
+.col-md-6 {
+	h3 {font-size:45px;}
+	h5 {font-size: 20px;}
+	p {font-size: 18px;}
+}
