@@ -3,7 +3,7 @@
 
 
 <p id="notice"><%= notice %></p>
-
+<h2>  Login in to post</h2>
 
 <div class="col-md-8 col-md-offset-3">
 
@@ -15,20 +15,28 @@
 
 <div class="center">
   
+<div class="col-md-8 col-md-offset-3">
 
+  <div class="form">
 <div class="row">
 
     <% @posts.each do |post| %>
   <div class="col-md-8">
 
     <%= post.message %>
+  <b><p> Posted <%= time_ago_in_words(post.created_at) %> by <%= post.user.name %></p></b>
    
-    <%= link_to 'Show', post, class: "btn btn-link" %>
+   
+    <% if (user_signed_in?) && (current_user==post.user) %>
         <%= link_to 'Edit', edit_post_path(post), class: "btn btn-link" %>
      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+     <%end %>
      <hr>
   </div>
+
   <% end %>
+  </div>
+  </div>
 </div>
 </div>
 
