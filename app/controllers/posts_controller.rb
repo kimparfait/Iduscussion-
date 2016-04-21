@@ -10,6 +10,10 @@ before_filter :check_user, only: [:edit, :update, :destroy]
      @post = Post.new
      @categories = Category.all.map{|c| [c.name, c.id]}
 
+     if params[:category].present?
+    category_id = Category.find_by(name: params[:category]).try(:id)
+    @posts = @posts.where(category_id: category_id) if category_id
+  end
 
   end
 
