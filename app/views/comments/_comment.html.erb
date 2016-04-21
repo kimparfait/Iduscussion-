@@ -1,0 +1,13 @@
+
+<p class="review-comment">   <%= comment.comment %></p>
+<% if user_signed_in? %>
+
+	<% if comment.user_id == current_user.id %>
+	  <div class="links btn-group">
+<%=link_to "Edit", edit_post_comment_path(comment.post, comment),class: "btn btn-custom" %>
+<%=link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Are you sure?"} ,class: "btn btn-custom" %>
+</div>
+<%end%>
+<%end%>
+<p style="color:blue">  Posted <%= time_ago_in_words(comment.created_at) %> by<%= comment.user.name%></p>
+

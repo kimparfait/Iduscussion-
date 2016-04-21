@@ -5,9 +5,10 @@ before_filter :check_user, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.limit(4).order("created_at DESC")
+    @posts = Post.paginate(:page => params[:page], :per_page => 4).order("created_at DESC")
     
      @post = Post.new
+     @categories = Category.all.map{|c| [c.name, c.id]}
 
 
   end
@@ -20,10 +21,12 @@ before_filter :check_user, only: [:edit, :update, :destroy]
   # GET /posts/new
   def new
     @post = Post.new
+    @categories = Category.all.map{|c| [c.name, c.id]}
   end
 
   # GET /posts/1/edit
   def edit
+      @categories = Category.all.map{|c| [c.name, c.id]}
   end
 
   # POST /posts
@@ -31,11 +34,12 @@ before_filter :check_user, only: [:edit, :update, :destroy]
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+     @post.category_id = params[:category_id]
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.json { render :index, status: :created, location: root_url }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -47,6 +51,7 @@ before_filter :check_user, only: [:edit, :update, :destroy]
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
+       @post.category_id = params[:category_id]
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
@@ -75,7 +80,7 @@ before_filter :check_user, only: [:edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:message)
+      params.require(:post).permit(:message, :category_id)
     end
 
      def check_user

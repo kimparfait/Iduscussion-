@@ -4,6 +4,7 @@
 
 <p id="notice"><%= notice %></p>
 <h2>  Login in to post</h2>
+<p> </p>
 
 <div class="col-md-8 col-md-offset-3">
 
@@ -22,15 +23,20 @@
 
     <% @posts.each do |post| %>
   <div class="col-md-8">
-
-    <%= post.message %>
-  <b><p> Posted <%= time_ago_in_words(post.created_at) %> by <%= post.user.name %></p></b>
-   
-   
+   <p class="current-category" style="color:blue" >Category: <%=post.category.name %> </p>
+    <%= post.message %><br>
     <% if (user_signed_in?) && (current_user==post.user) %>
         <%= link_to 'Edit', edit_post_path(post), class: "btn btn-link" %>
      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+     
+    
      <%end %>
+  <b><p> Posted <%= time_ago_in_words(post.created_at) %> by <%= post.user.name %></p></b>
+  <%= link_to " Comment", new_post_comment_path(post) , class: "btn btn-default" %>
+  <%= render  post.comments.limit(10).order("created_at DESC") %>
+   
+   <br>
+    
      <hr>
   </div>
 
@@ -39,6 +45,15 @@
   </div>
 </div>
 </div>
+<% unless @posts.empty? %>
+
+<nav>
+  <ul class="pager">
+   <b> <li class="previous " <%=will_paginate @posts%> <span aria-hidden="true">&larr;</li>
+   
+  </ul>
+</nav>
+<% end %>
 
 
 
