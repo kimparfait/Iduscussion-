@@ -5,7 +5,14 @@
 <h1 style="color:black ;">AsK Any QUESTIONS </h1>
 <h2 style="color:black ;">GET ANSWERS FROM EVERYONES</h2>
 </div>
+<div class="black">
+  <div class="center"><h3 class="current-category" style="color:blue" > <%= params[:category] %></h3></div>
+  
+  <% if @posts.count== 0 %>
 
+  <h3> There are  no posts currently for that category </h3>
+
+  <%else%>
 
 <p id="notice"><%= notice %></p>
 <p>  Login in to become a member 
@@ -60,7 +67,7 @@ and post your question</p>
   </ul>
 </nav>
 <% end %>
-
+<% end %>
 
 
 
