@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby "2.1.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,6 +24,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'will_paginate', '~> 3.1'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'json_pure', '~> 1.8.3'
+gem 'autoprefixer-rails', '~> 6.3.6'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.2', '>= 2.2.32'
+gem 'omniauth-facebook'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

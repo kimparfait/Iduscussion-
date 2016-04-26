@@ -44,12 +44,12 @@ and post your question</p>
     
     
      <%end %>
-     <%=link_to like_post_path(post), method: :put, class: "btn btn-default" do %>
+    <%=link_to like_post_path(post), method: :put, class: "btn btn-default" do %>
   <span class="glyphicon glyphicon-heart"></span>
   Like
   <%= post.get_upvotes.size %>
      <% end %>
- 
+  
   <b><p> Posted <%= time_ago_in_words(post.created_at) %> by <%= post.user.name %></p></b>
   <%= link_to " Comment", new_post_comment_path(post) , class: "btn btn-default" %>
   <%= render  post.comments.limit(10).order("created_at DESC") %>
