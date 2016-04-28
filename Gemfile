@@ -24,10 +24,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'will_paginate', '~> 3.1'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'json_pure', '~> 1.8.3'
-gem 'autoprefixer-rails', '~> 6.3.6'
-gem 'paperclip'
-gem 'aws-sdk', '~> 2.2', '>= 2.2.32'
+
+
+
 
 
 
