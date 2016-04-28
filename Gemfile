@@ -28,7 +28,7 @@ gem 'json_pure', '~> 1.8.3'
 gem 'autoprefixer-rails', '~> 6.3.6'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.2', '>= 2.2.32'
-gem 'omniauth-facebook'
+
 
 
 group :development, :test do
