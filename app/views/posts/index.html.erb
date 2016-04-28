@@ -36,8 +36,9 @@ and post your question</p>
 
     <% @posts.each do |post| %>
   <div class="col-md-8">
-   <p class="current-category" style="color:blue" >Category:<%=post.category.name %> </p>
+  
     <%= post.message %><br>
+     <p class="current-category" style="color:blue" >Category:<%=post.category.name %> </p>
     <% if (user_signed_in?) && (current_user==post.user) %>
         <%= link_to 'Edit', edit_post_path(post), class: "btn btn-link" %>
      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
